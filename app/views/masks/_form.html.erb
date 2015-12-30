@@ -1,0 +1,25 @@
+<%= form_for(@mask) do |f| %>
+  <% if @mask.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mask.errors.count, "error") %> prohibited this mask from being saved:</h2>
+
+      <ul>
+      <% @mask.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :phone_number %><br>
+    <%= f.text_field :phone_number %>
+  </div>
+  <div class="field">
+    <%= f.label :number_id %><br>
+    <%= f.text_field :number_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

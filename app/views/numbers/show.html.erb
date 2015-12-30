@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @number.number %>
+  <br>
+  <strong>Masks:</strong>
+  <ul>
+  <% @number.masks.each do |mask| %>
+    <li><%= mask.mask %></li>
+  <% end %>
+  </ul>
+</p>
+
+<%= link_to 'Back', numbers_path %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @mask.phone_number %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @mask.number %>
+</p>
+
+<%= link_to 'Edit', edit_mask_path(@mask) %> |
+<%= link_to 'Back', masks_path %>

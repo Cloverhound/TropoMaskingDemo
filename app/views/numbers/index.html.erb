@@ -1,0 +1,28 @@
+<h1>Phone Masking</h1>
+
+
+<%= form_tag("/numbers/mask_number", method: "post", remote: true, id: "mask_number_form") do %>
+  <%= label_tag(:number, "Please enter a number to mask:") %>
+  <%= text_field_tag(:number) %>
+  <%= submit_tag("Generate Mask") %>
+  &nbsp;
+  &nbsp;
+<% end %>
+
+
+
+
+<h1>Listing Numbers</h1>
+
+<table id="numbers_table" data-behavior="display-masks-table">
+  <thead id = "numbers_head">
+    <tr>
+      <th>Number</th>
+      <th>Masks</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody id="numbers_body">
+  </tbody>
+</table>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Masks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mask</th>
+      <th>Number</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @masks.each do |mask| %>
+      <tr>
+        <td><%= mask.phone_number %></td>
+        <td><%= mask.number.phone_number %></td>
+        <td><%= link_to 'Show', mask %></td>
+        <td><%= link_to 'Edit', edit_mask_path(mask) %></td>
+        <td><%= link_to 'Destroy', mask, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Mask', new_mask_path %>
