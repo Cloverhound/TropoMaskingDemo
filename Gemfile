@@ -26,6 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'phonelib'
 gem 'tropo-webapi-ruby'
+gem 'mocha'
 
 
 # Use ActiveModel has_secure_password

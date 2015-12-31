@@ -1,49 +1,18 @@
 require 'test_helper'
 
 class MasksControllerTest < ActionController::TestCase
-  setup do
-    @mask = masks(:one)
-  end
 
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:masks)
-  end
+    test "transfer should return proper json" do
+        mask_number = "+11221122112"
+        from_number = "+11111111111"
+        to_number = masks(:one) # references masks fixture
 
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
 
-  test "should create mask" do
-    assert_difference('Mask.count') do
-      post :create, mask: { number_id: @mask.number_id, phone_number: @mask.phone_number }
+        Mask.expects(:find_by).with(phone_number: mask_number).returns(to_number)  
+        post :transfer, {session: {to: {id: mask_number}, from: {id: from_number} } }
+
+        assert_response :success, "transferring call was unsuccessful"
+        assert_equal '{"tropo":[{"transfer":{"to":"' + to_number.number.phone_number + '","from":"' + from_number + '"}}]}', response.body
     end
 
-    assert_redirected_to mask_path(assigns(:mask))
-  end
-
-  test "should show mask" do
-    get :show, id: @mask
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, id: @mask
-    assert_response :success
-  end
-
-  test "should update mask" do
-    patch :update, id: @mask, mask: { number_id: @mask.number_id, phone_number: @mask.phone_number }
-    assert_redirected_to mask_path(assigns(:mask))
-  end
-
-  test "should destroy mask" do
-    assert_difference('Mask.count', -1) do
-      delete :destroy, id: @mask
-    end
-
-    assert_redirected_to masks_path
-  end
 end

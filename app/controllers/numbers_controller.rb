@@ -7,12 +7,16 @@ class NumbersController < ApplicationController
 
       provided_number = params[:number]
 
+      puts "number " + provided_number
+
       if Phonelib.invalid? provided_number
+        puts "invalid number"
           format.json {render json: {message: "phone number is invalid"}, status: 500 }
       else
         provided_number = Phonelib.parse(provided_number).e164
 
         if Number.exists?(:phone_number => provided_number)
+          puts "number exists"
           number = Number.find_by phone_number: provided_number
         else
           number = Number.create(phone_number: provided_number);

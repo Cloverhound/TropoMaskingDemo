@@ -1,7 +1,4 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  phone_number: MyString
-
-two:
-  phone_number: MyString
+  phone_number: '+11111111111'
