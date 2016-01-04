@@ -17,6 +17,7 @@ Run ```rake test ``` to run all tests locally
 
 
 Please ensure that you've set the following environment variables on your machine so you can run the tests locally:
+    
     TROPO_USERNAME
     TROPO_PASSWORD
     TROPO_MASKING_APP_ID
